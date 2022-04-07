@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace practicaDepreciacion.Forms
 {
-    public partial class AgregarEMpleado : Form
+    public partial class AgregarEmpleado : Form
     {
-        public AgregarEMpleado()
+        public AgregarEmpleado()
         {
             InitializeComponent();
         }

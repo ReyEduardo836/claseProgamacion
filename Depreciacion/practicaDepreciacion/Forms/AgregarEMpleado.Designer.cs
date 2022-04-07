@@ -1,7 +1,7 @@
 ﻿
 namespace practicaDepreciacion.Forms
 {
-    partial class AgregarEMpleado
+    partial class AgregarEmpleado
     {
         /// <summary>
         /// Required designer variable.

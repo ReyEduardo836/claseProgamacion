@@ -3,6 +3,7 @@ using AppCore.IServices;
 using Domain.Entities;
 using Domain.Enum;
 using Domain.Interfaces;
+using practicaDepreciacion.Forms;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -227,6 +228,20 @@ namespace practicaDepreciacion
         private Activo RetornarActivo(DataGridViewCellEventArgs e)
         {
             return activoServices.Read()[e.RowIndex];
+        }
+
+        private void BtnAddEmpleado_Click(object sender, EventArgs e)
+        {
+            if(this.PnlMain.Controls.Count > 0)
+            {
+                this.PnlMain.Controls.RemoveAt(0);
+            }
+            AgregarEmpleado emp = new AgregarEmpleado();
+            emp.TopLevel = false;
+            emp.Dock = DockStyle.Fill;
+            this.PnlMain.Controls.Add(emp);
+            this.PnlMain.Tag = emp;
+            emp.Show();
         }
     }
 }

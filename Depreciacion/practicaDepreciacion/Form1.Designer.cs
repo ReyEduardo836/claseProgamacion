@@ -92,6 +92,7 @@
             this.BtnAddEmpleado.TabIndex = 21;
             this.BtnAddEmpleado.Text = "Agregar Empleado";
             this.BtnAddEmpleado.UseVisualStyleBackColor = true;
+            this.BtnAddEmpleado.Click += new System.EventHandler(this.BtnAddEmpleado_Click);
             // 
             // richTextBox1
             // 
