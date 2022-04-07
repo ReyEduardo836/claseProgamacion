@@ -17,7 +17,7 @@ namespace Domain.Entities
         public double ValorResidual { get; set; } //8       
         public string Codigo { get; set; } // 10 * 2 = 20 + 3 = 25 UVID System.git.new Guid
         public int Empleado { get; set; } // 4
-        public string Estado { get; set; } // 15 * 2 = 30 + 3 = 35
+        public int Estado { get; set; } // 15 * 2 = 30 + 3 = 35
 
     }
 }
