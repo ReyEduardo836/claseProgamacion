@@ -12,9 +12,19 @@ namespace practicaDepreciacion.Forms
 {
     public partial class AgregarEmpleado : Form
     {
-        public AgregarEmpleado()
+        Panel mainPanel;
+        Panel secPanel;
+        public AgregarEmpleado(Panel mainPanel, Panel secPanel)
         {
+            this.mainPanel = mainPanel;
+            this.secPanel = secPanel;
             InitializeComponent();
+        }
+
+        private void btnRegresar_Click(object sender, EventArgs e)
+        {
+            this.mainPanel.Controls.RemoveAt(0);
+            this.mainPanel.Controls.Add(secPanel);
         }
     }
 }

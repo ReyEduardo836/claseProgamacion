@@ -3,6 +3,7 @@ using AppCore.IServices;
 using Domain.Entities;
 using Domain.Enum;
 using Domain.Interfaces;
+using Domain.Shared;
 using practicaDepreciacion.Forms;
 using System;
 using System.Collections.Generic;
@@ -91,8 +92,8 @@ namespace practicaDepreciacion
         }
         private bool verificar()
         {
-            if (String.IsNullOrEmpty(txtNombre.Text) || String.IsNullOrEmpty(txtValor.Text) || String.IsNullOrEmpty(txtVidaU.Text) || String.IsNullOrEmpty(txtValorR.Text) ||
-                txtDescripcion.Text.Trim() == "") //TODO
+            string[] campos = { txtNombre.Text, txtValor.Text, txtVidaU.Text, txtValorR.Text };
+            if (StringHelper.Wspaces(campos)) //TODO
             {
               
                 return false;
@@ -236,7 +237,7 @@ namespace practicaDepreciacion
             {
                 this.PnlMain.Controls.RemoveAt(0);
             }
-            AgregarEmpleado emp = new AgregarEmpleado();
+            AgregarEmpleado emp = new AgregarEmpleado(this.PnlMain, this.PnActivo);
             emp.TopLevel = false;
             emp.Dock = DockStyle.Fill;
             this.PnlMain.Controls.Add(emp);
