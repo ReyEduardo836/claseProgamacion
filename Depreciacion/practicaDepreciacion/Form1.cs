@@ -93,9 +93,8 @@ namespace practicaDepreciacion
         private bool verificar()
         {
             string[] campos = { txtNombre.Text, txtValor.Text, txtVidaU.Text, txtValorR.Text };
-            if (StringHelper.Wspaces(campos)) //TODO
+            if (StringHelper.Wspaces(campos))
             {
-              
                 return false;
             }
             return true;
