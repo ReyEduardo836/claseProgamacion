@@ -19,17 +19,17 @@ namespace AppCore.Services
 
         public bool Delete(int id)
         {
-            throw new NotImplementedException();
+            return empleadoModel.Delete(id);
         }
 
         public Activo GetById(int id)
         {
-            throw new NotImplementedException();
+            return empleadoModel.GetById(id);
         }
 
         public void Update(Activo t)
         {
-            throw new NotImplementedException();
+           empleadoModel.Update(t);
         }
     }
 }
