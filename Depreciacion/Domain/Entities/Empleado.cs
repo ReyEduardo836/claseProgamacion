@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Domain.Entities
 {
-    class Empleado //SIZE = 660
+    public class Empleado //SIZE = 660
     {
         public int Id { get; set; } // 4
         public string Cedula { get; set; } //

@@ -30,6 +30,7 @@ namespace practicaDepreciacion.Forms
         private void InitializeComponent()
         {
             this.PnlAgregarEmpleado = new System.Windows.Forms.Panel();
+            this.btnRegresar = new System.Windows.Forms.Button();
             this.label7 = new System.Windows.Forms.Label();
             this.btnAgregarEmpleado = new System.Windows.Forms.Button();
             this.txtEmail = new System.Windows.Forms.TextBox();
@@ -42,9 +43,8 @@ namespace practicaDepreciacion.Forms
             this.label3 = new System.Windows.Forms.Label();
             this.txtCedula = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
-            this.txtNombreEMpleado = new System.Windows.Forms.TextBox();
+            this.txtNombre = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.btnRegresar = new System.Windows.Forms.Button();
             this.PnlAgregarEmpleado.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -63,13 +63,23 @@ namespace practicaDepreciacion.Forms
             this.PnlAgregarEmpleado.Controls.Add(this.label3);
             this.PnlAgregarEmpleado.Controls.Add(this.txtCedula);
             this.PnlAgregarEmpleado.Controls.Add(this.label2);
-            this.PnlAgregarEmpleado.Controls.Add(this.txtNombreEMpleado);
+            this.PnlAgregarEmpleado.Controls.Add(this.txtNombre);
             this.PnlAgregarEmpleado.Controls.Add(this.label1);
             this.PnlAgregarEmpleado.Dock = System.Windows.Forms.DockStyle.Fill;
             this.PnlAgregarEmpleado.Location = new System.Drawing.Point(0, 0);
             this.PnlAgregarEmpleado.Name = "PnlAgregarEmpleado";
             this.PnlAgregarEmpleado.Size = new System.Drawing.Size(800, 450);
             this.PnlAgregarEmpleado.TabIndex = 0;
+            // 
+            // btnRegresar
+            // 
+            this.btnRegresar.Location = new System.Drawing.Point(50, 34);
+            this.btnRegresar.Name = "btnRegresar";
+            this.btnRegresar.Size = new System.Drawing.Size(75, 23);
+            this.btnRegresar.TabIndex = 14;
+            this.btnRegresar.Text = "Regresar";
+            this.btnRegresar.UseVisualStyleBackColor = true;
+            this.btnRegresar.Click += new System.EventHandler(this.btnRegresar_Click);
             // 
             // label7
             // 
@@ -89,6 +99,7 @@ namespace practicaDepreciacion.Forms
             this.btnAgregarEmpleado.TabIndex = 12;
             this.btnAgregarEmpleado.Text = "Agregar Empleado";
             this.btnAgregarEmpleado.UseVisualStyleBackColor = true;
+            this.btnAgregarEmpleado.Click += new System.EventHandler(this.btnAgregarEmpleado_Click);
             // 
             // txtEmail
             // 
@@ -170,12 +181,12 @@ namespace practicaDepreciacion.Forms
             this.label2.TabIndex = 2;
             this.label2.Text = "Cedula";
             // 
-            // txtNombreEMpleado
+            // txtNombre
             // 
-            this.txtNombreEMpleado.Location = new System.Drawing.Point(296, 107);
-            this.txtNombreEMpleado.Name = "txtNombreEMpleado";
-            this.txtNombreEMpleado.Size = new System.Drawing.Size(253, 20);
-            this.txtNombreEMpleado.TabIndex = 1;
+            this.txtNombre.Location = new System.Drawing.Point(296, 107);
+            this.txtNombre.Name = "txtNombre";
+            this.txtNombre.Size = new System.Drawing.Size(253, 20);
+            this.txtNombre.TabIndex = 1;
             // 
             // label1
             // 
@@ -185,16 +196,6 @@ namespace practicaDepreciacion.Forms
             this.label1.Size = new System.Drawing.Size(44, 13);
             this.label1.TabIndex = 0;
             this.label1.Text = "Nombre";
-            // 
-            // btnRegresar
-            // 
-            this.btnRegresar.Location = new System.Drawing.Point(50, 34);
-            this.btnRegresar.Name = "btnRegresar";
-            this.btnRegresar.Size = new System.Drawing.Size(75, 23);
-            this.btnRegresar.TabIndex = 14;
-            this.btnRegresar.Text = "Regresar";
-            this.btnRegresar.UseVisualStyleBackColor = true;
-            this.btnRegresar.Click += new System.EventHandler(this.btnRegresar_Click);
             // 
             // AgregarEmpleado
             // 
@@ -215,7 +216,7 @@ namespace practicaDepreciacion.Forms
 
         private System.Windows.Forms.Panel PnlAgregarEmpleado;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox txtNombreEMpleado;
+        private System.Windows.Forms.TextBox txtNombre;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox txtCedula;
         private System.Windows.Forms.TextBox txtDireccion;

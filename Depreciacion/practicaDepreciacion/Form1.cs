@@ -40,8 +40,6 @@ namespace practicaDepreciacion
             }
         }
 
-    
-
         private void txtValor_KeyPress_1(object sender, KeyPressEventArgs e)
         {
             if (Char.IsLetter(e.KeyChar))
