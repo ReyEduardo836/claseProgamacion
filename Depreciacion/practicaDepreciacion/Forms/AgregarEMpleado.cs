@@ -1,4 +1,5 @@
-﻿using Domain.Shared;
+﻿using AppCore.IServices;
+using Domain.Shared;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -15,8 +16,10 @@ namespace practicaDepreciacion.Forms
     {
         Panel mainPanel;
         Panel secPanel;
-        public AgregarEmpleado(Panel mainPanel, Panel secPanel, IEmpleado )
+        IEmpleadoServices empleadoService;
+        public AgregarEmpleado(Panel mainPanel, Panel secPanel, IEmpleadoServices empleadoService )
         {
+            this.empleadoService = empleadoService;
             this.mainPanel = mainPanel;
             this.secPanel = secPanel;
             InitializeComponent();

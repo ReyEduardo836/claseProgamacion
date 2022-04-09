@@ -9,10 +9,9 @@ using System.Threading.Tasks;
 
 namespace AppCore.Services
 {
-    public class ActivoServices:BaseServices<Activo>,IActivoServices
+    public class ActivoServices:BaseServices<Activo>,IActivoServices // ActivoServices as IActivoService
     {
-
-        IActivoModel activoModel;
+        IActivoModel activoModel; // IActivoModel is BinaryActivoRepository
         public ActivoServices(IActivoModel model) : base(model)
         {
             this.activoModel = model;

@@ -1,9 +1,12 @@
 ﻿using AppCore.Factories;
 using AppCore.IServices;
+using AppCore.Services;
+using Autofac;
 using Domain.Entities;
 using Domain.Enum;
 using Domain.Interfaces;
 using Domain.Shared;
+using Infraestructure.Repository;
 using practicaDepreciacion.Forms;
 using System;
 using System.Collections.Generic;
@@ -234,7 +237,13 @@ namespace practicaDepreciacion
             {
                 this.PnlMain.Controls.RemoveAt(0);
             }
-            AgregarEmpleado emp = new AgregarEmpleado(this.PnlMain, this.PnActivo);
+            //builder
+            var builder = new ContainerBuilder();
+            builder.RegisterType<BinaryEmpleadoRepository>().As<IEmpleadoModel>();
+            builder.RegisterType<EmpleadoServices>().As<IEmpleadoServices>();
+            var container = builder.Build();
+
+            AgregarEmpleado emp = new AgregarEmpleado(this.PnlMain, this.PnActivo, container.Resolve<IEmpleadoServices>());
             emp.TopLevel = false;
             emp.Dock = DockStyle.Fill;
             this.PnlMain.Controls.Add(emp);

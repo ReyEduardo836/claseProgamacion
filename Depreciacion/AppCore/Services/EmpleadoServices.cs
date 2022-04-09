@@ -9,9 +9,9 @@ using System.Threading.Tasks;
 
 namespace AppCore.Services
 {
-    public class EmpleadoServices : BaseServices<Empleado>, IEmpleadoServices
+    public class EmpleadoServices : BaseServices<Empleado>, IEmpleadoServices //as IEmpleadoServices
     {
-        IEmpleadoModel empleadoModel;
+        IEmpleadoModel empleadoModel; // is BinaryEmpleadoRepository
         public EmpleadoServices (IEmpleadoModel model) : base(model)
         {
             this.empleadoModel = model;
