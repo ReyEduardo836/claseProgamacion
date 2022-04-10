@@ -11,7 +11,7 @@ namespace Domain.Shared
         public static bool Wspaces(string[] campos)
         {
             var validacion = campos.Where(x => string.IsNullOrWhiteSpace(x));
-            return !validacion.Contains("false");
+            return validacion.ToArray().Length > 0;
         }
     }
 }

@@ -39,9 +39,9 @@ namespace practicaDepreciacion.Forms
             this.label5 = new System.Windows.Forms.Label();
             this.txtDireccion = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
-            this.txtApellido = new System.Windows.Forms.TextBox();
-            this.label3 = new System.Windows.Forms.Label();
             this.txtCedula = new System.Windows.Forms.TextBox();
+            this.label3 = new System.Windows.Forms.Label();
+            this.txtApellido = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.txtNombre = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
@@ -59,9 +59,9 @@ namespace practicaDepreciacion.Forms
             this.PnlAgregarEmpleado.Controls.Add(this.label5);
             this.PnlAgregarEmpleado.Controls.Add(this.txtDireccion);
             this.PnlAgregarEmpleado.Controls.Add(this.label4);
-            this.PnlAgregarEmpleado.Controls.Add(this.txtApellido);
-            this.PnlAgregarEmpleado.Controls.Add(this.label3);
             this.PnlAgregarEmpleado.Controls.Add(this.txtCedula);
+            this.PnlAgregarEmpleado.Controls.Add(this.label3);
+            this.PnlAgregarEmpleado.Controls.Add(this.txtApellido);
             this.PnlAgregarEmpleado.Controls.Add(this.label2);
             this.PnlAgregarEmpleado.Controls.Add(this.txtNombre);
             this.PnlAgregarEmpleado.Controls.Add(this.label1);
@@ -149,12 +149,12 @@ namespace practicaDepreciacion.Forms
             this.label4.TabIndex = 6;
             this.label4.Text = "Direccion";
             // 
-            // txtApellido
+            // txtCedula
             // 
-            this.txtApellido.Location = new System.Drawing.Point(296, 144);
-            this.txtApellido.Name = "txtApellido";
-            this.txtApellido.Size = new System.Drawing.Size(253, 20);
-            this.txtApellido.TabIndex = 5;
+            this.txtCedula.Location = new System.Drawing.Point(296, 184);
+            this.txtCedula.Name = "txtCedula";
+            this.txtCedula.Size = new System.Drawing.Size(253, 20);
+            this.txtCedula.TabIndex = 5;
             // 
             // label3
             // 
@@ -165,12 +165,12 @@ namespace practicaDepreciacion.Forms
             this.label3.TabIndex = 4;
             this.label3.Text = "Apellido";
             // 
-            // txtCedula
+            // txtApellido
             // 
-            this.txtCedula.Location = new System.Drawing.Point(296, 184);
-            this.txtCedula.Name = "txtCedula";
-            this.txtCedula.Size = new System.Drawing.Size(253, 20);
-            this.txtCedula.TabIndex = 3;
+            this.txtApellido.Location = new System.Drawing.Point(296, 144);
+            this.txtApellido.Name = "txtApellido";
+            this.txtApellido.Size = new System.Drawing.Size(253, 20);
+            this.txtApellido.TabIndex = 3;
             // 
             // label2
             // 
@@ -218,10 +218,10 @@ namespace practicaDepreciacion.Forms
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox txtNombre;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox txtCedula;
+        private System.Windows.Forms.TextBox txtApellido;
         private System.Windows.Forms.TextBox txtDireccion;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.TextBox txtApellido;
+        private System.Windows.Forms.TextBox txtCedula;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TextBox txtTelefono;
         private System.Windows.Forms.Label label5;

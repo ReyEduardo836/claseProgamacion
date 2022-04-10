@@ -1,4 +1,5 @@
 ﻿using AppCore.IServices;
+using Domain.Entities;
 using Domain.Shared;
 using System;
 using System.Collections.Generic;
@@ -17,7 +18,7 @@ namespace practicaDepreciacion.Forms
         Panel mainPanel;
         Panel secPanel;
         IEmpleadoServices empleadoService;
-        public AgregarEmpleado(Panel mainPanel, Panel secPanel, IEmpleadoServices empleadoService )
+        public AgregarEmpleado(Panel mainPanel, Panel secPanel, IEmpleadoServices empleadoService)
         {
             this.empleadoService = empleadoService;
             this.mainPanel = mainPanel;
@@ -27,30 +28,47 @@ namespace practicaDepreciacion.Forms
 
         private void btnRegresar_Click(object sender, EventArgs e)
         {
+            previousScreen();
+        }
+
+        private void previousScreen()
+        {
             this.mainPanel.Controls.RemoveAt(0);
             this.mainPanel.Controls.Add(secPanel);
         }
 
+        private void cleanData()
+        {
+            txtApellido.Text = "";
+            txtNombre.Text = "";
+            txtCedula.Text = "";
+            txtDireccion.Text = "";
+            txtTelefono.Text = "";
+            txtEmail.Text = "";
+        }
+
         private void btnAgregarEmpleado_Click(object sender, EventArgs e)
         {
-            string[] campos = { txtNombre.Text, txtApellido.Text, txtCedula.Text, txtDireccion.Text, txtTelefono.Text, txtEmail.Text};
-            if (StringHelper.Wspaces(campos))
+            string[] campos = { txtNombre.Text, txtCedula.Text, txtApellido.Text, txtDireccion.Text, txtTelefono.Text, txtEmail.Text};
+            if (!StringHelper.Wspaces(campos))
             {
-                //Activo activo = new Activo()
-                //{
-                //    Nombre = txtNombre.Text,
-                //    Valor = double.Parse(txtValor.Text),
-                //    ValorResidual = double.Parse(txtValorR.Text),
-                //    VidaUtil = int.Parse(txtVidaU.Text)
-                //};
-                //activoServices.Add(activo);
-                ////        dataGridView1.DataSource = null;
-                //limpiar();
-                //dataGridView1.DataSource = activoServices.Read();
+                Empleado empleado = new Empleado()
+                {
+                    Cedula = txtCedula.Text,
+                    Nombre = txtNombre.Text,
+                    Apellido = txtApellido.Text,
+                    Direccion = txtDireccion.Text,
+                    Telefono = txtTelefono.Text,
+                    Email = txtEmail.Text
+                };
+                empleadoService.Add(empleado);
+                cleanData();
+                previousScreen();
+                Form1.addEmpleado(empleado);
             }
             else
             {
-                MessageBox.Show("Tienes que llenar todos los formularios.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Tienes que llenar todos los campos.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
     }

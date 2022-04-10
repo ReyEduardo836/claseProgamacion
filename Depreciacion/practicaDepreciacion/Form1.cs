@@ -23,10 +23,17 @@ namespace practicaDepreciacion
     public partial class Form1 : Form
     {
         IActivoServices activoServices;
-        public Form1(IActivoServices ActivoServices)
+        IEmpleadoServices empleadoServices;
+        static List<Empleado> empleados;
+        static AutoCompleteStringCollection colection;
+        public Form1(IActivoServices ActivoServices, IEmpleadoServices empleadoServices)
         {
             this.activoServices = ActivoServices;
+            this.empleadoServices = empleadoServices;
+            colection = new AutoCompleteStringCollection();
+            empleados = empleadoServices.Read();
             InitializeComponent();
+            empleadoAutocomplete();
         }
 
         private void txtNombre_KeyUp(object sender, KeyEventArgs e)
@@ -237,18 +244,28 @@ namespace practicaDepreciacion
             {
                 this.PnlMain.Controls.RemoveAt(0);
             }
-            //builder
-            var builder = new ContainerBuilder();
-            builder.RegisterType<BinaryEmpleadoRepository>().As<IEmpleadoModel>();
-            builder.RegisterType<EmpleadoServices>().As<IEmpleadoServices>();
-            var container = builder.Build();
 
-            AgregarEmpleado emp = new AgregarEmpleado(this.PnlMain, this.PnActivo, container.Resolve<IEmpleadoServices>());
+            AgregarEmpleado emp = new AgregarEmpleado(this.PnlMain, this.PnActivo, empleadoServices);
             emp.TopLevel = false;
             emp.Dock = DockStyle.Fill;
             this.PnlMain.Controls.Add(emp);
             this.PnlMain.Tag = emp;
             emp.Show();
+        }
+
+        private void empleadoAutocomplete()
+        {
+            foreach(Empleado empleado in empleados)
+            {
+                colection.Add($"{empleado.Nombre} {empleado.Apellido}");
+            }
+            txtEmpleado.AutoCompleteCustomSource = colection;
+        }
+
+        public static void addEmpleado(Empleado empleado)
+        {
+            empleados.Add(empleado);
+            colection.Add($"{empleado.Nombre} {empleado.Apellido}");
         }
     }
 }

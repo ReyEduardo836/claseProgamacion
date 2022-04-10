@@ -210,6 +210,8 @@
             // 
             // txtEmpleado
             // 
+            this.txtEmpleado.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+            this.txtEmpleado.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource;
             this.txtEmpleado.Location = new System.Drawing.Point(106, 240);
             this.txtEmpleado.Name = "txtEmpleado";
             this.txtEmpleado.Size = new System.Drawing.Size(189, 20);
