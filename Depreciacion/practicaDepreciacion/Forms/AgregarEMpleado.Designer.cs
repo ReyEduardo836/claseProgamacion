@@ -45,11 +45,13 @@ namespace practicaDepreciacion.Forms
             this.label2 = new System.Windows.Forms.Label();
             this.txtNombre = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
+            this.btnEmpleadosDg = new System.Windows.Forms.Button();
             this.PnlAgregarEmpleado.SuspendLayout();
             this.SuspendLayout();
             // 
             // PnlAgregarEmpleado
             // 
+            this.PnlAgregarEmpleado.Controls.Add(this.btnEmpleadosDg);
             this.PnlAgregarEmpleado.Controls.Add(this.btnRegresar);
             this.PnlAgregarEmpleado.Controls.Add(this.label7);
             this.PnlAgregarEmpleado.Controls.Add(this.btnAgregarEmpleado);
@@ -85,7 +87,7 @@ namespace practicaDepreciacion.Forms
             // 
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(302, 31);
+            this.label7.Location = new System.Drawing.Point(331, 31);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(170, 24);
             this.label7.TabIndex = 13;
@@ -197,6 +199,16 @@ namespace practicaDepreciacion.Forms
             this.label1.TabIndex = 0;
             this.label1.Text = "Nombre";
             // 
+            // btnEmpleadosDg
+            // 
+            this.btnEmpleadosDg.Location = new System.Drawing.Point(611, 34);
+            this.btnEmpleadosDg.Name = "btnEmpleadosDg";
+            this.btnEmpleadosDg.Size = new System.Drawing.Size(142, 23);
+            this.btnEmpleadosDg.TabIndex = 15;
+            this.btnEmpleadosDg.Text = "Mostrar Empleados";
+            this.btnEmpleadosDg.UseVisualStyleBackColor = true;
+            this.btnEmpleadosDg.Click += new System.EventHandler(this.btnEmpleadosDg_Click);
+            // 
             // AgregarEmpleado
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -230,5 +242,6 @@ namespace practicaDepreciacion.Forms
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Button btnAgregarEmpleado;
         private System.Windows.Forms.Button btnRegresar;
+        private System.Windows.Forms.Button btnEmpleadosDg;
     }
 }

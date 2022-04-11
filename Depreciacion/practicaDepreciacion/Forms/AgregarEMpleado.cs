@@ -71,5 +71,17 @@ namespace practicaDepreciacion.Forms
                 MessageBox.Show("Tienes que llenar todos los campos.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
+
+        private void btnEmpleadosDg_Click(object sender, EventArgs e)
+        {
+            if(mainPanel.Controls.Count > 0)
+            {
+                mainPanel.Controls.RemoveAt(0);
+            }
+            EmpleadosData empleadosData = new EmpleadosData();
+            empleadosData.TopLevel = false;
+            mainPanel.Controls.Add(empleadosData);
+            empleadosData.Show();
+        }
     }
 }

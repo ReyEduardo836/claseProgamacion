@@ -24,7 +24,7 @@ namespace practicaDepreciacion
     {
         IActivoServices activoServices;
         IEmpleadoServices empleadoServices;
-        static List<Empleado> empleados;
+        private static List<Empleado> empleados;
         static AutoCompleteStringCollection colection;
         public Form1(IActivoServices ActivoServices, IEmpleadoServices empleadoServices)
         {
@@ -266,6 +266,11 @@ namespace practicaDepreciacion
         {
             empleados.Add(empleado);
             colection.Add($"{empleado.Nombre} {empleado.Apellido}");
+        }
+
+        public static List<Empleado> getEmpleados()
+        {
+            return empleados;
         }
     }
 }
