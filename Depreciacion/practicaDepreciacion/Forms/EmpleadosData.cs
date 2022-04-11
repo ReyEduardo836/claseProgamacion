@@ -12,8 +12,12 @@ namespace practicaDepreciacion.Forms
 {
     public partial class EmpleadosData : Form
     {
-        public EmpleadosData()
+        Panel mainPanel;
+        Panel secPanel;
+        public EmpleadosData(Panel mainPanel, Panel secPanel)
         {
+            this.mainPanel = mainPanel;
+            this.secPanel = secPanel;
             InitializeComponent();
             LoadDataGrid();
         }
@@ -29,6 +33,15 @@ namespace practicaDepreciacion.Forms
             if (e.RowIndex < 0 || e.ColumnIndex < 0) return;
             dgvEmpleadosData.CurrentCell = dgvEmpleadosData.Rows[e.RowIndex].Cells[e.ColumnIndex];
             this.contextMenuStrip1.Show(Cursor.Position);
+        }
+
+        private void btnRegresar_Click(object sender, EventArgs e)
+        {
+            if(mainPanel.Controls.Count > 0)
+            {
+                mainPanel.Controls.RemoveAt(0);
+            }
+            mainPanel.Controls.Add(secPanel);
         }
     }
 }

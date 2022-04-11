@@ -78,8 +78,9 @@ namespace practicaDepreciacion.Forms
             {
                 mainPanel.Controls.RemoveAt(0);
             }
-            EmpleadosData empleadosData = new EmpleadosData();
+            EmpleadosData empleadosData = new EmpleadosData(mainPanel, this.PnlAgregarEmpleado);
             empleadosData.TopLevel = false;
+            empleadosData.Dock = DockStyle.Fill;
             mainPanel.Controls.Add(empleadosData);
             empleadosData.Show();
         }
