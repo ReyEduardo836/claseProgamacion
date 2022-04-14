@@ -46,7 +46,7 @@ namespace Infraestructure.Repository
             throw new NotImplementedException();
         }
 
-        public Activo GetById(int id)
+        public Empleado GetById(int id)
         {
             throw new NotImplementedException();
         }
@@ -63,9 +63,9 @@ namespace Infraestructure.Repository
             }
         }
 
-        public void Update(Activo t)
+        public void Update(Empleado t)
         {
-            throw new NotImplementedException();
+            raf.Update<Empleado>(t);
         }
     }
 }

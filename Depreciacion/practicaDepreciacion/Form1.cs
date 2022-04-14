@@ -268,6 +268,14 @@ namespace practicaDepreciacion
             colection.Add($"{empleado.Nombre} {empleado.Apellido}");
         }
 
+        public static void updateEmpleado(Empleado empleado, string nombre)
+        {
+            empleados.RemoveAll(x => x.Id == empleado.Id);
+            empleados.Add(empleado);
+            colection.Remove(nombre);
+            colection.Add($"{empleado.Nombre} {empleado.Apellido}");
+        }
+
         public static void removeEmpleado(int id, string nombre)
         {
             empleados.RemoveAll(x => x.Id == id);

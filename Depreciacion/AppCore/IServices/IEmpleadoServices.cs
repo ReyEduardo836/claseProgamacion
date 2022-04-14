@@ -9,8 +9,8 @@ namespace AppCore.IServices
 {
     public interface IEmpleadoServices : IServices<Empleado>
     {
-        Activo GetById(int id);
+        Empleado GetById(int id);
         bool Delete(int id);
-        void Update(Activo t);
+        void Update(Empleado t);
     }
 }

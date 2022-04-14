@@ -22,12 +22,12 @@ namespace AppCore.Services
             return empleadoModel.Delete(id);
         }
 
-        public Activo GetById(int id)
+        public Empleado GetById(int id)
         {
             return empleadoModel.GetById(id);
         }
 
-        public void Update(Activo t)
+        public void Update(Empleado t)
         {
            empleadoModel.Update(t);
         }

@@ -18,12 +18,36 @@ namespace practicaDepreciacion.Forms
         Panel mainPanel;
         Panel secPanel;
         IEmpleadoServices empleadoService;
+        Empleado empleadoEdit;
         public AgregarEmpleado(Panel mainPanel, Panel secPanel, IEmpleadoServices empleadoService)
         {
             this.empleadoService = empleadoService;
             this.mainPanel = mainPanel;
             this.secPanel = secPanel;
             InitializeComponent();
+            this.btnAgregarEmpleado.Text = "Agregar Empleado";
+            this.label7.Text = "Agregar Empleado";
+        }
+        public AgregarEmpleado(Panel mainPanel, Panel secPanel, Empleado empleado, IEmpleadoServices empleadoService)
+        {
+            this.empleadoService = empleadoService;
+            this.mainPanel = mainPanel;
+            this.secPanel = secPanel;
+            this.empleadoEdit = empleado;
+            InitializeComponent();
+            llenarCampos();
+            this.btnAgregarEmpleado.Text = "Editar Empleado";
+            this.label7.Text = "Editar Empleado";
+        }
+
+        private void llenarCampos()
+        {
+            this.txtNombre.Text = empleadoEdit.Nombre;
+            this.txtApellido.Text = empleadoEdit.Apellido;
+            this.txtCedula.Text = empleadoEdit.Cedula;
+            this.txtDireccion.Text = empleadoEdit.Direccion;
+            this.txtTelefono.Text = empleadoEdit.Telefono;
+            this.txtEmail.Text = empleadoEdit.Email;
         }
 
         private void btnRegresar_Click(object sender, EventArgs e)
@@ -61,11 +85,21 @@ namespace practicaDepreciacion.Forms
                     Telefono = txtTelefono.Text,
                     Email = txtEmail.Text
                 };
-                int id = empleadoService.Add(empleado);
+                if (empleadoEdit == null)
+                {
+                    int id = empleadoService.Add(empleado);
+                    empleado.Id = id;
+                    Form1.addEmpleado(empleado);
+                }
+                else
+                {
+                    empleado.Id = empleadoEdit.Id;
+                    empleadoService.Update(empleado);
+                    string nombreAnterior = $"{empleadoEdit.Nombre} {empleadoEdit.Apellido}";
+                    Form1.updateEmpleado(empleado, nombreAnterior);
+                }
                 cleanData();
                 previousScreen();
-                empleado.Id = id;
-                Form1.addEmpleado(empleado);
             }
             else
             {

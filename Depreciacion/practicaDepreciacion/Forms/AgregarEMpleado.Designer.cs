@@ -217,7 +217,7 @@ namespace practicaDepreciacion.Forms
             this.Controls.Add(this.PnlAgregarEmpleado);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "AgregarEmpleado";
-            this.Text = "AgregarEMpleado";
+            this.Text = "";
             this.PnlAgregarEmpleado.ResumeLayout(false);
             this.PnlAgregarEmpleado.PerformLayout();
             this.ResumeLayout(false);

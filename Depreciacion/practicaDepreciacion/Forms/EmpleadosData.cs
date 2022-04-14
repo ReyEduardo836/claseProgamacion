@@ -1,4 +1,5 @@
 ﻿using AppCore.IServices;
+using Domain.Entities;
 using Domain.Interfaces;
 using System;
 using System.Collections.Generic;
@@ -28,6 +29,7 @@ namespace practicaDepreciacion.Forms
 
         private void LoadDataGrid()
         {
+            dgvEmpleadosData.DataSource = null;
             dgvEmpleadosData.DataSource = Form1.getEmpleados();
         }
 
@@ -56,9 +58,30 @@ namespace practicaDepreciacion.Forms
             {
                 //dgvEmpleadosData.Rows.Remove(dgvEmpleadosData.CurrentRow);
                 Form1.removeEmpleado(id, nombre);
-                dgvEmpleadosData.DataSource = null;
-                dgvEmpleadosData.DataSource = Form1.getEmpleados();
+                LoadDataGrid();
             }
+        }
+
+        private void editarToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Empleado empleado = new Empleado()
+            {
+                Id = (int)dgvEmpleadosData.CurrentRow.Cells[0].Value,
+                Cedula = (string)dgvEmpleadosData.CurrentRow.Cells[1].Value,
+                Nombre = (string)dgvEmpleadosData.CurrentRow.Cells[2].Value,
+                Apellido = (string)dgvEmpleadosData.CurrentRow.Cells[3].Value,
+                Direccion = (string)dgvEmpleadosData.CurrentRow.Cells[4].Value,
+                Telefono = (string)dgvEmpleadosData.CurrentRow.Cells[5].Value,
+                Email = (string)dgvEmpleadosData.CurrentRow.Cells[6].Value
+            };
+            AgregarEmpleado editarEmpleado = new AgregarEmpleado(mainPanel, this.pnlEmpleadosData, empleado, empleadoService);
+            if(mainPanel.Controls.Count > 0)
+            {
+                mainPanel.Controls.RemoveAt(0);
+            }
+            editarEmpleado.TopLevel = false;
+            mainPanel.Controls.Add(editarEmpleado);
+            editarEmpleado.Show();
         }
     }
 }

@@ -9,8 +9,8 @@ namespace Domain.Interfaces
 {
     public interface IEmpleadoModel : IModel<Empleado>
     {
-        Activo GetById(int id);
+        Empleado GetById(int id);
         bool Delete(int id);
-        void Update(Activo t);
+        void Update(Empleado t);
     }
 }
