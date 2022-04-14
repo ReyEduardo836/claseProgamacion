@@ -16,9 +16,9 @@ namespace AppCore.Services
             this.Model = model;
         }
 
-        public void Add(T t)
+        public int Add(T t)
         {
-             Model.Add(t);
+             return Model.Add(t);
         }
 
         public void Delete(T t)

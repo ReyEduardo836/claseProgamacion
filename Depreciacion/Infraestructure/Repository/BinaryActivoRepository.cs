@@ -17,11 +17,11 @@ namespace Infraestructure.Repository
         {
             context = new RAFContext("activo", SIZE);
         }
-        public void Add(Activo t)
+        public int Add(Activo t)
         {
             try
             {
-                context.Create<Activo>(t);
+                return context.Create<Activo>(t);
             }
             catch (IOException)
             {

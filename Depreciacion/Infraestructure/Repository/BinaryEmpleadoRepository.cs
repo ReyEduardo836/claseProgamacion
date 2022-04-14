@@ -17,11 +17,11 @@ namespace Infraestructure.Repository
             raf = new RAFContext("empleado", SIZE);
         }
 
-        public void Add(Empleado t)
+        public int Add(Empleado t)
         {
             try
             {
-                raf.Create<Empleado>(t);
+                return raf.Create<Empleado>(t);
             }
             catch (Exception)
             {
@@ -31,7 +31,14 @@ namespace Infraestructure.Repository
 
         public bool Delete(int id)
         {
-            throw new NotImplementedException();
+            try
+            {
+                return raf.Delete(id);
+            }
+            catch (Exception)
+            {
+                throw;
+            }
         }
 
         public void Delete(Empleado t)

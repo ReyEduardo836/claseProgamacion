@@ -8,7 +8,7 @@ namespace Domain.Interfaces
 {
     public interface IModel<T>
     {
-        void Add(T t);
+        int Add(T t);
         void Delete(T t);
         List<T> Read();
 

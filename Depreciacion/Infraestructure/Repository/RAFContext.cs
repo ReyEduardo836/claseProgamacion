@@ -34,14 +34,14 @@ namespace Infraestructure.Repository
             get => File.Open($"{fileName}.dat", FileMode.OpenOrCreate, FileAccess.ReadWrite);
         }
 
-        public void Create<T>(T t)
+        public int Create<T>(T t)
         {
+            int n, k;
             try
             {
                 using (BinaryWriter bwHeader = new BinaryWriter(HeaderStream),
                                     bwData = new BinaryWriter(DataStream))
                 {
-                    int n, k;
                     using (BinaryReader brHeader = new BinaryReader(bwHeader.BaseStream))
                     {
                         if (brHeader.BaseStream.Length == 0)
@@ -120,6 +120,7 @@ namespace Infraestructure.Repository
                         brHeader.Close();
                     }
                 }
+                return k;
             }
             catch (IOException)
             {

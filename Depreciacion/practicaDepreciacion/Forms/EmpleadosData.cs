@@ -1,4 +1,6 @@
-﻿using System;
+﻿using AppCore.IServices;
+using Domain.Interfaces;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -14,8 +16,10 @@ namespace practicaDepreciacion.Forms
     {
         Panel mainPanel;
         Panel secPanel;
-        public EmpleadosData(Panel mainPanel, Panel secPanel)
+        IEmpleadoServices empleadoService;
+        public EmpleadosData(Panel mainPanel, Panel secPanel, IEmpleadoServices empleadoService)
         {
+            this.empleadoService = empleadoService;
             this.mainPanel = mainPanel;
             this.secPanel = secPanel;
             InitializeComponent();
@@ -42,6 +46,19 @@ namespace practicaDepreciacion.Forms
                 mainPanel.Controls.RemoveAt(0);
             }
             mainPanel.Controls.Add(secPanel);
+        }
+
+        private void eliminarToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            int id = (int)dgvEmpleadosData.CurrentRow.Cells[0].Value;
+            string nombre = $"{dgvEmpleadosData.CurrentRow.Cells[2].Value} {dgvEmpleadosData.CurrentRow.Cells[3].Value}";
+            if (empleadoService.Delete(id))
+            {
+                //dgvEmpleadosData.Rows.Remove(dgvEmpleadosData.CurrentRow);
+                Form1.removeEmpleado(id, nombre);
+                dgvEmpleadosData.DataSource = null;
+                dgvEmpleadosData.DataSource = Form1.getEmpleados();
+            }
         }
     }
 }

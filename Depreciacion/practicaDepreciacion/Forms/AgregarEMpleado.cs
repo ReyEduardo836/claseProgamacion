@@ -61,9 +61,10 @@ namespace practicaDepreciacion.Forms
                     Telefono = txtTelefono.Text,
                     Email = txtEmail.Text
                 };
-                empleadoService.Add(empleado);
+                int id = empleadoService.Add(empleado);
                 cleanData();
                 previousScreen();
+                empleado.Id = id;
                 Form1.addEmpleado(empleado);
             }
             else
@@ -78,9 +79,8 @@ namespace practicaDepreciacion.Forms
             {
                 mainPanel.Controls.RemoveAt(0);
             }
-            EmpleadosData empleadosData = new EmpleadosData(mainPanel, this.PnlAgregarEmpleado);
+            EmpleadosData empleadosData = new EmpleadosData(mainPanel, this.PnlAgregarEmpleado, empleadoService);
             empleadosData.TopLevel = false;
-            empleadosData.Dock = DockStyle.Fill;
             mainPanel.Controls.Add(empleadosData);
             empleadosData.Show();
         }
